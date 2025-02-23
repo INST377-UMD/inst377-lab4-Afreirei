@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>INST377 - Ari Freireich - Lab 4</title>
+        <link rel="stylesheet" href="Lab4css.css">
+    </head>
+    
+    <body>
+        <header>
+            <h1 id="header">INST377 - Ari Freireich - Lab 4</h1>
+        </header>
+
+        <!-- Name box -->
+        <div class="contentBoxes">
+            <form name="contactForm" method="get">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <input onclick="showAlert()" type="submit" value="Alert Me!">
+            </form>
+            
+        </div>
+
+        <!-- Javascript Code for obtaining the entered name and sending an alert-->
+        <script type="text/javascript">
+            function showAlert() {
+                var enteredName= document.contactForm.name.value;
+                if (enteredName.trim() == "") { // Remove any whitespace and check if empty
+                    return false;
+                } else {
+                alert("Hi "+ enteredName +"!")
+                }
+            }
+        </script>
+
+        <!-- Change color box -->
+        <div class="contentBoxes">
+           <button onclick="changeColor()">Change Color</button>
+        </div>
+
+        <!-- Javascript Code for changing the background color of the page-->
+        <script type="text/javascript">
+            function changeColor() {
+                if (document.body.style.backgroundColor == "green") {
+                    document.body.style.backgroundColor = "blue";
+                } else {
+                    document.body.style.backgroundColor = "green";
+                }
+
+            }
+        </script>
+
+        <!-- Validate Text box -->
+        <div class="contentBoxes">
+            <form name="validateText" method="get">
+                <label for="enteredText">Text Tester:</label>
+                <input type="text" id="enteredText" required>
+                <input onclick="validateTextAlert()" type="submit" value="Validate Text">
+            </form>
+
+            <!-- Javascript Code for identifying invalid characters in the entered text-->
+            <script type="text/javascript">
+                function validateTextAlert() {
+                    var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                    if (validation.test(document.validateText.enteredText.value)) {
+                        alert("Invalid text was entered.")
+
+                        return false;
+                    }
+                }
+
+            </script>
+
+
+        </div>
+
+        <!-- Add text button -->
+        <div class="contentBoxes">
+            <button onclick="addText()">Add Text</button>
+
+            <!-- Javascript Code for adding text to the header-->
+            <script>
+                function addText() {
+                    const h1=
+                    document.getElementById("header");
+                    let addedText = " Add Text.";
+                    
+                    h1.append(addedText);
+                }
+
+            </script>
+
+        </div>
+
+    </body>
+
+
+
+
+</html>
